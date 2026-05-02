@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Weekly Tech Show{% endblock %}</title>
+    <link rel="stylesheet" href="{{ base_path }}/static/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <h1 class="logo"><a href="{{ base_path }}/index.html">Weekly Tech Show</a></h1>
+            <span class="subtitle">行业资讯聚合 · CMF / PVD / 光学模拟</span>
+        </div>
+        <nav class="main-nav">
+            <a href="{{ base_path }}/index.html" class="nav-item {% if active_domain == 'index' %}active{% endif %}">首页总览</a>
+            {% for d in domains %}
+            <a href="{{ base_path }}/{{ d.slug }}/index.html" class="nav-item {% if active_domain == d.slug %}active{% endif %}">{{ d.name }}</a>
+            {% endfor %}
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索资讯关键词..." autocomplete="off">
+            <select id="domainFilter">
+                <option value="">全部领域</option>
+                {% for d in domains %}
+                <option value="{{ d.slug }}">{{ d.name }}</option>
+                {% endfor %}
+            </select>
+            <select id="categoryFilter">
+                <option value="">全部维度</option>
+                <option value="tech">技术前沿</option>
+                <option value="patent">专利信息</option>
+                <option value="industry">行业动态</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>Weekly Tech Show · 每周日晚自动更新 · 最近更新: {{ last_update }}</p>
+        <p class="footer-hint">资讯均来源于公开网络，点击标题跳转原始来源</p>
+    </footer>
+
+    <script src="{{ base_path }}/static/js/search.js"></script>
+</body>
+</html>

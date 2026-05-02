@@ -1,0 +1,41 @@
+name: Weekly Tech Show Update
+
+on:
+  schedule:
+    # 每周日 20:00 北京时间 = 12:00 UTC
+    - cron: "0 12 * * 0"
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scrapers & generate HTML
+        run: python main.py
+
+      - name: Commit & push updated output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ output/ --all
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "auto: weekly update $(date +%Y-%m-%d)"
+            git push
+          fi

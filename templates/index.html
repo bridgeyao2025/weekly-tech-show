@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Weekly Tech Show — 首页总览{% endblock %}
+
+{% block content %}
+<section class="overview">
+    <h2>最新资讯总览</h2>
+    <p class="update-info">
+        {% if update_status == 'success' %}
+        <span class="badge badge-success">更新成功</span>
+        {% endif %}
+        最近更新: {{ last_update }} · 总计 {{ total_count }} 条资讯
+    </p>
+</section>
+
+<section class="domain-grid">
+    {% for d in domains %}
+    <div class="domain-card">
+        <div class="domain-card-header">
+            <h3><a href="{{ d.slug }}/index.html">{{ d.name }}</a></h3>
+            <span class="count">{{ d.count }} 条</span>
+        </div>
+        <div class="domain-preview">
+            {% for art in d.latest[:6] %}
+            <div class="article-item {{ art.category }}">
+                <span class="cat-tag cat-{{ art.category }}">{{ art.category_label }}</span>
+                <h4><a href="{{ art.url }}" target="_blank" rel="noopener">{{ art.title }}</a></h4>
+                <div class="meta">
+                    <span class="source">{{ art.source }}</span>
+                    <span class="date">{{ art.published_at }}</span>
+                </div>
+                {% if art.summary %}<p class="summary">{{ art.summary }}</p>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{{ d.slug }}/index.html" class="view-all">查看全部 →</a>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

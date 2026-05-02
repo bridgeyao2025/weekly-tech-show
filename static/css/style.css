@@ -1,0 +1,305 @@
+/* ============================================================
+   Weekly Tech Show — 极简样式
+   ============================================================ */
+
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e5e5;
+    --text: #1a1a1a;
+    --text-secondary: #666;
+    --text-muted: #999;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --tech: #059669;
+    --patent: #7c3aed;
+    --industry: #d97706;
+    --success: #16a34a;
+    --radius: 6px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.logo a {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.5px;
+}
+.logo a:hover { text-decoration: none; color: var(--accent); }
+
+.subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ---------- Navigation ---------- */
+
+.main-nav {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.nav-item {
+    padding: 6px 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: background .15s;
+}
+.nav-item:hover { background: #f0f0f0; text-decoration: none; color: var(--text); }
+.nav-item.active { background: var(--accent); color: #fff; font-weight: 600; }
+.nav-item.active:hover { background: var(--accent-hover); color: #fff; }
+
+/* ---------- Search ---------- */
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+.search-bar input {
+    flex: 1;
+    max-width: 400px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 14px;
+    outline: none;
+    transition: border-color .15s;
+}
+.search-bar input:focus { border-color: var(--accent); }
+
+.search-bar select {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 13px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    outline: none;
+}
+
+/* ---------- Main Content ---------- */
+
+.site-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* ---------- Overview ---------- */
+
+.overview {
+    margin-bottom: 28px;
+}
+
+.overview h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.update-info {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.badge-success { background: #dcfce7; color: var(--success); }
+
+/* ---------- Category Tags ---------- */
+
+.cat-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+.cat-tech { background: #d1fae5; color: #065f46; }
+.cat-patent { background: #ede9fe; color: #5b21b6; }
+.cat-industry { background: #fef3c7; color: #92400e; }
+
+/* ---------- Domain Grid (Homepage) ---------- */
+
+.domain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1100px) { .domain-grid { grid-template-columns: 1fr; } }
+
+.domain-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.domain-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.domain-card-header h3 { font-size: 17px; font-weight: 600; }
+
+.domain-card-header .count {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.view-all {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    padding: 6px;
+    font-size: 13px;
+    color: var(--accent);
+    border-radius: var(--radius);
+    transition: background .15s;
+}
+.view-all:hover { background: #eff6ff; text-decoration: none; }
+
+/* ---------- Three-Column Layout (Domain Page) ---------- */
+
+.three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1100px) { .three-col { grid-template-columns: 1fr; } }
+
+.col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.col-header h3 { font-size: 15px; font-weight: 600; }
+.col-header .count { font-size: 12px; color: var(--text-muted); }
+
+/* ---------- Article Item ---------- */
+
+.article-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.article-item:last-child { border-bottom: none; }
+
+.article-item h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.article-item .meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.article-item .summary {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.empty-hint {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 20px 0;
+}
+
+/* ---------- Domain Header ---------- */
+
+.domain-header {
+    margin-bottom: 24px;
+}
+.domain-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+.footer-hint { font-size: 12px; margin-top: 4px; }
+
+/* ---------- Search Highlight ---------- */
+
+.highlight { background: #fef08a; padding: 0 2px; border-radius: 2px; }
+.article-item.hidden { display: none; }

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}{{ domain_name }} — Weekly Tech Show{% endblock %}
+
+{% block content %}
+<section class="domain-header">
+    <h2>{{ domain_name }}</h2>
+    <p class="update-info">
+        {% if update_status == 'success' %}
+        <span class="badge badge-success">更新成功</span>
+        {% endif %}
+        最近更新: {{ last_update }} · {{ articles|length }} 条资讯
+    </p>
+</section>
+
+<div class="three-col">
+    <!-- 技术前沿 -->
+    <div class="col" id="col-tech">
+        <div class="col-header">
+            <h3><span class="cat-tag cat-tech">技术前沿</span></h3>
+            <span class="count">{{ tech_articles|length }} 条</span>
+        </div>
+        <div class="col-list">
+            {% for art in tech_articles %}
+            <div class="article-item">
+                <h4><a href="{{ art.url }}" target="_blank" rel="noopener">{{ art.title }}</a></h4>
+                <div class="meta">
+                    <span class="source">{{ art.source }}</span>
+                    <span class="date">{{ art.published_at }}</span>
+                </div>
+                {% if art.summary %}<p class="summary">{{ art.summary }}</p>{% endif %}
+            </div>
+            {% else %}
+            <p class="empty-hint">暂无资讯，等待下次更新</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- 专利信息 -->
+    <div class="col" id="col-patent">
+        <div class="col-header">
+            <h3><span class="cat-tag cat-patent">专利信息</span></h3>
+            <span class="count">{{ patent_articles|length }} 条</span>
+        </div>
+        <div class="col-list">
+            {% for art in patent_articles %}
+            <div class="article-item">
+                <h4><a href="{{ art.url }}" target="_blank" rel="noopener">{{ art.title }}</a></h4>
+                <div class="meta">
+                    <span class="source">{{ art.source }}</span>
+                    <span class="date">{{ art.published_at }}</span>
+                </div>
+                {% if art.summary %}<p class="summary">{{ art.summary }}</p>{% endif %}
+            </div>
+            {% else %}
+            <p class="empty-hint">暂无资讯，等待下次更新</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- 行业动态 -->
+    <div class="col" id="col-industry">
+        <div class="col-header">
+            <h3><span class="cat-tag cat-industry">行业动态</span></h3>
+            <span class="count">{{ industry_articles|length }} 条</span>
+        </div>
+        <div class="col-list">
+            {% for art in industry_articles %}
+            <div class="article-item">
+                <h4><a href="{{ art.url }}" target="_blank" rel="noopener">{{ art.title }}</a></h4>
+                <div class="meta">
+                    <span class="source">{{ art.source }}</span>
+                    <span class="date">{{ art.published_at }}</span>
+                </div>
+                {% if art.summary %}<p class="summary">{{ art.summary }}</p>{% endif %}
+            </div>
+            {% else %}
+            <p class="empty-hint">暂无资讯，等待下次更新</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,113 @@
+# ============================================================
+# Weekly Tech Show — 配置文件
+# 支持来源：RSS / 网页 / 搜狗微信 / B站搜索
+# ============================================================
+
+schedule:
+  cron: "0 12 * * 0"
+  timezone: "Asia/Shanghai"
+
+history_weeks: 12
+summary_max_length: 400
+
+domains:
+  # ===== CMF 领域 =====
+  cmf:
+    name: "CMF 色彩·材料·表面处理"
+    slug: "cmf"
+    enabled: true
+    keywords:
+      - "CMF"
+      - "色彩"
+      - "材料"
+      - "表面处理"
+      - "喷涂"
+      - "阳极氧化"
+      - "纹理"
+      - "环保材料"
+      - "涂层"
+      - "新材料"
+      - "改性"
+      - "专利"
+    rss_sources:
+      - "https://www.36kr.com/feed"
+    page_urls:
+      - "https://www.x-techcon.com/"
+      - "https://weixin.sogou.com/weixin?type=2&query=CMF%E8%AE%BE%E8%AE%A1%E6%9D%90%E6%96%99%E8%A1%A8%E9%9D%A2%E5%A4%84%E7%90%86"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E5%9B%BD%E9%99%85CMF%E8%AE%BE%E8%AE%A1%E5%A5%96"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E8%BF%85%E7%A8%B7%E7%A7%91%E6%8A%80"
+    web_sources: []
+    patent_queries: []
+    bilibili_queries:
+      - "CMF设计 材料工艺"
+      - "工业设计 CMF"
+
+  # ===== PVD 领域 =====
+  pvd:
+    name: "PVD 真空镀膜"
+    slug: "pvd"
+    enabled: true
+    keywords:
+      - "PVD"
+      - "真空镀膜"
+      - "磁控溅射"
+      - "蒸发镀膜"
+      - "离子镀膜"
+      - "镀膜"
+      - "靶材"
+      - "物理气相沉积"
+      - "硬质涂层"
+      - "真空"
+      - "专利"
+      - "涂层设备"
+    rss_sources: []
+    page_urls:
+      - "http://www.chinesevacuum.com/"
+      # 搜狗微信搜索
+      - "https://weixin.sogou.com/weixin?type=2&query=%E8%96%84%E8%86%9C%E6%9D%90%E6%96%99"
+      - "https://weixin.sogou.com/weixin?type=2&query=PVD%E9%95%80%E8%86%9C%E6%8A%80%E6%9C%AF"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E8%96%84%E8%86%9C%E5%85%89%E5%AD%A6"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E8%96%84%E8%86%9C%E6%9D%90%E6%96%99%E5%89%8D%E6%B2%BF"
+    web_sources: []
+    patent_queries: []
+    bilibili_queries:
+      - "PVD真空镀膜"
+      - "磁控溅射 镀膜技术"
+      - "光学镀膜"
+
+  # ===== 光学模拟领域 =====
+  optical:
+    name: "光学模拟"
+    slug: "optical"
+    enabled: true
+    keywords:
+      - "光学模拟"
+      - "光学仿真"
+      - "ZEMAX"
+      - "LightTools"
+      - "TracePro"
+      - "光学设计"
+      - "光线追迹"
+      - "光学算法"
+      - "光学系统"
+      - "车载光学"
+      - "镜头"
+      - "成像"
+      - "专利"
+    rss_sources: []
+    page_urls:
+      - "https://b2b.csoe.org.cn/club/"
+      - "http://www.cadit.com.cn/shownews.asp?BigClass=最新通讯"
+      # 搜狗微信搜索
+      - "https://weixin.sogou.com/weixin?type=2&query=%E8%96%84%E8%86%9C%E5%85%89%E5%AD%A6"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E5%85%89%E5%AD%A6%E6%A8%A1%E6%8B%9F+ZEMAX"
+    web_sources: []
+    patent_queries: []
+    bilibili_queries:
+      - "光学设计 ZEMAX"
+      - "光学模拟 LightTools"
+      - "谈三圈 芯片"
+
+source_filters:
+  whitelist: []
+  blacklist: []

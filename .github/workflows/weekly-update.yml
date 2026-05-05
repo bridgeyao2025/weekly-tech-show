@@ -29,13 +29,31 @@ jobs:
         run: python main.py
 
       - name: Commit & push updated output
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ docs/ --all
           if git diff --cached --quiet; then
             echo "No changes to commit"
+            echo "has_update=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "auto: weekly update $(date +%Y-%m-%d)"
+            git commit -m "auto: update $(date +%Y-%m-%d)"
             git push
+            echo "has_update=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Send email notification
+        if: steps.commit.outputs.has_update == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.qq.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Weekly Tech Show 已更新 ($(date +%Y-%m-%d))"
+          to: ${{ secrets.MAIL_TO }}
+          from: Weekly Tech Show
+          body: |
+            本期资讯已更新，点击查看：
+            https://bridgeyao2025.github.io/weekly-tech-show/

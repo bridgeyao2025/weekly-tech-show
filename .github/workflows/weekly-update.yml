@@ -2,8 +2,8 @@ name: Weekly Tech Show Update
 
 on:
   schedule:
-    # 每周日 20:00 北京时间 = 12:00 UTC
-    - cron: "0 12 * * 0"
+    # 每 3 天 20:00 北京时间 = 12:00 UTC
+    - cron: "0 12 */3 * *"
   workflow_dispatch:  # 支持手动触发
 
 jobs:

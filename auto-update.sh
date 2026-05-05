@@ -21,7 +21,7 @@ else
 fi
 
 # Step 2: 提交变更
-git add data/ output/
+git add data/ docs/
 
 if git diff --cached --quiet; then
     log "没有新内容，跳过提交"

@@ -43,17 +43,13 @@ jobs:
             echo "has_update=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Send email notification
+      - name: Send WeChat notification
         if: steps.commit.outputs.has_update == 'true'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.qq.com
-          server_port: 587
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "Weekly Tech Show 已更新 ($(date +%Y-%m-%d))"
-          to: ${{ secrets.MAIL_TO }}
-          from: Weekly Tech Show
-          body: |
-            本期资讯已更新，点击查看：
-            https://bridgeyao2025.github.io/weekly-tech-show/
+        run: |
+          curl -s -X POST "https://sctapi.ftqq.com/${{ secrets.SCT_SENDKEY }}.send" \
+            -d "title=Weekly Tech Show 已更新" \
+            -d "desp=## 本期资讯已更新
+
+          点击查看：[bridgeyao2025.github.io/weekly-tech-show/](https://bridgeyao2025.github.io/weekly-tech-show/)
+
+          > 更新时间：$(date '+%Y-%m-%d %H:%M')（北京时间）"

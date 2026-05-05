@@ -1,6 +1,6 @@
 #!/bin/bash
 # Weekly Tech Show — 自动更新脚本
-# 用途：crontab 定时调用，抓取资讯并推送到 Gitee
+# 用途：crontab 定时调用，抓取资讯并推送到 GitHub
 
 set -e
 cd "$(dirname "$0")"
@@ -31,15 +31,12 @@ fi
 git commit -m "weekly update $(date +%Y-%m-%d)" >> "$LOG_FILE" 2>&1
 log "提交完成"
 
-# Step 3: 推送（最多重试 3 次）
+# Step 3: 推送到 GitHub（最多重试 3 次）
 for i in 1 2 3; do
-    if git push origin main >> "$LOG_FILE" 2>&1; then
-        log "推送成功"
-        exit 0
+    if git push github main >> "$LOG_FILE" 2>&1; then
+        log "GitHub 推送成功"
+        break
     fi
     log "推送失败，等待 60 秒后重试 ($i/3)..."
     sleep 60
 done
-
-log "推送失败，请手动检查"
-exit 1

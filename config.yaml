@@ -29,13 +29,30 @@ domains:
       - "新材料"
       - "改性"
       - "专利"
+      - "艾邦"
+      - "高分子"
+      - "塑料"
+      - "弹性体"
+      - "改性塑料"
+      - "免喷涂"
+      - "INS"
+      - "IMD"
+      - "IML"
     rss_sources:
       - "https://www.36kr.com/feed"
+      - "https://www.dianqizazhi.com/feed/"
     page_urls:
       - "https://www.x-techcon.com/"
+      - "http://cmfdesignaward.com/"
+      - "https://www.xincailiao.com/"
+      - "https://www.aibang.com/"
+      # 搜狗微信搜索
       - "https://weixin.sogou.com/weixin?type=2&query=CMF%E8%AE%BE%E8%AE%A1%E6%9D%90%E6%96%99%E8%A1%A8%E9%9D%A2%E5%A4%84%E7%90%86"
       - "https://weixin.sogou.com/weixin?type=2&query=%E5%9B%BD%E9%99%85CMF%E8%AE%BE%E8%AE%A1%E5%A5%96"
       - "https://weixin.sogou.com/weixin?type=2&query=%E8%BF%85%E7%A8%B7%E7%A7%91%E6%8A%80"
+      - "https://weixin.sogou.com/weixin?type=2&query=CMF%E8%AE%BE%E8%AE%A1%E5%86%9B%E5%9B%A2%E5%8F%B7"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E5%AF%BB%E6%9D%90%E9%97%AE%E6%96%99"
+      - "https://weixin.sogou.com/weixin?type=2&query=%E8%89%BE%E9%82%A6%E9%AB%98%E5%88%86%E5%AD%90"
     web_sources: []
     patent_queries: []
     bilibili_queries:
@@ -60,9 +77,13 @@ domains:
       - "真空"
       - "专利"
       - "涂层设备"
+      - "PVD镀膜装备"
+      - "光学薄膜"
+      - "精密光学产业"
     rss_sources: []
     page_urls:
       - "http://www.chinesevacuum.com/"
+      - "https://www.ncsti.gov.cn/"
       # 搜狗微信搜索
       - "https://weixin.sogou.com/weixin?type=2&query=%E8%96%84%E8%86%9C%E6%9D%90%E6%96%99"
       - "https://weixin.sogou.com/weixin?type=2&query=PVD%E9%95%80%E8%86%9C%E6%8A%80%E6%9C%AF"

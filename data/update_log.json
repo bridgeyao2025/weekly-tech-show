@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-07-07 22:13:50",
+    "domain": "optical",
+    "fetched": 18,
+    "new": 0,
+    "total": 1896
+  },
+  {
+    "date": "2026-07-07 22:12:56",
+    "domain": "pvd",
+    "fetched": 52,
+    "new": 3,
+    "total": 1896
+  },
+  {
+    "date": "2026-07-07 22:11:26",
+    "domain": "cmf",
+    "fetched": 22,
+    "new": 1,
+    "total": 1893
+  },
+  {
     "date": "2026-07-04 21:03:26",
     "domain": "optical",
     "fetched": 29,

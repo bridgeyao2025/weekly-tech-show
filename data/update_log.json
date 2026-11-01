@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-11-02 01:26:51",
+    "domain": "optical",
+    "fetched": 27,
+    "new": 12,
+    "total": 5068
+  },
+  {
+    "date": "2026-11-02 01:26:30",
+    "domain": "pvd",
+    "fetched": 71,
+    "new": 11,
+    "total": 5056
+  },
+  {
+    "date": "2026-11-02 01:26:07",
+    "domain": "cmf",
+    "fetched": 71,
+    "new": 47,
+    "total": 5045
+  },
+  {
     "date": "2026-11-01 00:34:27",
     "domain": "optical",
     "fetched": 28,
@@ -565,26 +586,5 @@
     "fetched": 70,
     "new": 51,
     "total": 2945
-  },
-  {
-    "date": "2026-08-13 20:49:36",
-    "domain": "optical",
-    "fetched": 31,
-    "new": 13,
-    "total": 2894
-  },
-  {
-    "date": "2026-08-13 20:49:14",
-    "domain": "pvd",
-    "fetched": 72,
-    "new": 18,
-    "total": 2881
-  },
-  {
-    "date": "2026-08-13 20:48:49",
-    "domain": "cmf",
-    "fetched": 67,
-    "new": 51,
-    "total": 2863
   }
 ]
